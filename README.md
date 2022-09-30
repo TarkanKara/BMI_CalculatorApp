@@ -1,16 +1,5 @@
-# bmi_calculator_app
+## [BMI Calculator App](https://www.behance.net/gallery/121700221/Clean-BMI-Calculator-App?tracking_source=search_projects%7CBMI%20calculator)
 
-A new Flutter project.
+Also known as Mass in the body. It is normal for a person's weight and height and is used to teach. With the obtained values, it shows how healthy and close to an ideal weight he is.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![BMI Calculator App](https://user-images.githubusercontent.com/59411109/193364669-98f85763-ebd9-4ebd-b19e-7dd61cab6738.gif)
