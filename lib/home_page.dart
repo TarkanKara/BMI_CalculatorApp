@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:bmi_calculator_app/your_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +14,7 @@ class _HomePageState extends State<HomePage> {
   double yas = 0;
   double height = 0;
   double weight = 0;
+  double ort = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,8 @@ class _HomePageState extends State<HomePage> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.only(top: 60, left: 20, right: 20),
+        padding:
+            const EdgeInsets.only(top: 60, left: 20, right: 20, bottom: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -64,7 +69,7 @@ class _HomePageState extends State<HomePage> {
               onChanged: (value) {
                 setState(() {
                   yas = double.parse(value);
-                  //print(yas);
+                  print(yas);
                 });
               },
             ),
@@ -77,7 +82,7 @@ class _HomePageState extends State<HomePage> {
               ),
               onChanged: (value) {
                 height = double.parse(value);
-                //print(height);
+                print(height);
               },
             ),
             SizedBox(height: 20),
@@ -89,10 +94,38 @@ class _HomePageState extends State<HomePage> {
               ),
               onChanged: (value) {
                 weight = double.parse(value);
-                //print(weight);
+                print(weight);
               },
             ),
-            SizedBox(height: 20),
+            Spacer(),
+            GestureDetector(
+              onTap: () {
+                ort = weight / pow(2, (height / 100));
+                print(ort);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => YourPage(),
+                    ));
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 10, right: 10),
+                width: double.infinity,
+                height: 50,
+                alignment: Alignment.center,
+                child: Text(
+                  "Calculate BMI",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Colors.lightBlue,
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -112,7 +145,7 @@ class _HomePageState extends State<HomePage> {
           border: Border.all(
             width: 1,
           ),
-          borderRadius: BorderRadius.all(Radius.circular(25)),
+          borderRadius: BorderRadius.all(Radius.circular(40)),
         ),
         child: Text(Textt),
       ),
