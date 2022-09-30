@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:bmi_calculator_app/CalculateBMI.dart';
 import 'package:bmi_calculator_app/your_page.dart';
 import 'package:flutter/material.dart';
 
@@ -102,10 +103,16 @@ class _HomePageState extends State<HomePage> {
               onTap: () {
                 ort = weight / pow(2, (height / 100));
                 print(ort);
+                CalculateBMI calculateBMI =
+                    new CalculateBMI(height: height, weight: weight);
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => YourPage(),
+                      builder: (context) => YourPage(
+                        bmi: calculateBMI.calculateBMI(),
+                        resultt: calculateBMI.getResult(),
+                        feddback: calculateBMI.feedBack(),
+                      ),
                     ));
               },
               child: Container(
