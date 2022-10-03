@@ -4,6 +4,8 @@ import 'package:bmi_calculator_app/CalculateBMI.dart';
 import 'package:bmi_calculator_app/your_page.dart';
 import 'package:flutter/material.dart';
 
+enum Genderselected { female, male, other }
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -16,6 +18,9 @@ class _HomePageState extends State<HomePage> {
   double height = 0;
   double weight = 0;
   double ort = 0;
+  Genderselected? selected;
+  final Color activeColor = Colors.black54;
+  final Color inactiveColor = Colors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +61,40 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                button("Female"),
-                button("Male"),
-                button("Other"),
+                GenderselectedButton(
+                  "Female",
+                  () {
+                    setState(() {
+                      selected = Genderselected.female;
+                    });
+                    //print("Tıklandı1");
+                  },
+                  selected == Genderselected.female
+                      ? activeColor
+                      : inactiveColor,
+                ),
+                GenderselectedButton(
+                  "Male",
+                  () {
+                    setState(() {
+                      selected = Genderselected.male;
+                    });
+                    //print("Tıklandı2");
+                  },
+                  selected == Genderselected.male ? activeColor : inactiveColor,
+                ),
+                GenderselectedButton(
+                  "Other",
+                  () {
+                    setState(() {
+                      selected = Genderselected.other;
+                      //print("Tıklandı3");
+                    });
+                  },
+                  selected == Genderselected.other
+                      ? activeColor
+                      : inactiveColor,
+                ),
               ],
             ),
             SizedBox(height: 50),
@@ -139,22 +175,22 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  GestureDetector button(String Textt) {
+  GestureDetector GenderselectedButton(
+      String text, Function() onTap, Color color) {
     return GestureDetector(
-      onTap: () {
-        print("Button Tıklandı!");
-      },
+      onTap: onTap,
       child: Container(
         width: 100,
         height: 45,
         alignment: Alignment.center,
         decoration: BoxDecoration(
+          color: color,
           border: Border.all(
             width: 1,
           ),
           borderRadius: BorderRadius.all(Radius.circular(40)),
         ),
-        child: Text(Textt),
+        child: Text(text),
       ),
     );
   }
