@@ -31,7 +31,7 @@ class CalculateBMI {
 
   String feedBack() {
     if (_bmi < 18.50) {
-      return ("Aşırı Zayıfsınız Yemek Yiyi");
+      return ("Aşırı Zayıfsınız Yemek Yemelisin");
     } else if (_bmi >= 18.50 && _bmi <= 24.90) {
       return ("Kilonuz ideal");
     } else if (_bmi > 24.90 && _bmi <= 29.50) {
