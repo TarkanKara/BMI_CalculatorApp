@@ -1,8 +1,10 @@
-import 'dart:math';
-
 import 'package:bmi_calculator_app/CalculateBMI.dart';
 import 'package:bmi_calculator_app/your_page.dart';
 import 'package:flutter/material.dart';
+
+//Methods
+import 'methods/genderSelectedButton.dart';
+import 'methods/newTextField.dart';
 
 enum Genderselected { female, male, other }
 
@@ -21,6 +23,9 @@ class _HomePageState extends State<HomePage> {
   Genderselected? selected;
   final Color activeColor = Colors.black54;
   final Color inactiveColor = Colors.white;
+  final age_controller = TextEditingController();
+  final height_controller = TextEditingController();
+  final weight_controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -98,47 +103,29 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             SizedBox(height: 50),
-            TextField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                hintText: "Age",
-              ),
-              onChanged: (value) {
-                setState(() {
-                  yas = double.parse(value);
-                  print(yas);
-                });
-              },
+            newTextField(
+              age_controller,
+              " ",
+              "Age",
             ),
             SizedBox(height: 20),
-            TextField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                suffixText: "cm",
-                hintText: "Height",
-              ),
-              onChanged: (value) {
-                height = double.parse(value);
-                print(height);
-              },
+            newTextField(
+              height_controller,
+              "Cm",
+              "Height",
             ),
             SizedBox(height: 20),
-            TextField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                hintText: "Weight",
-                suffixText: "kg",
-              ),
-              onChanged: (value) {
-                weight = double.parse(value);
-                print(weight);
-              },
+            newTextField(
+              weight_controller,
+              "Kg",
+              "Weight",
             ),
             Spacer(),
             GestureDetector(
               onTap: () {
-                ort = weight / pow(2, (height / 100));
-                print(ort);
+                yas = double.parse(age_controller.text);
+                height = double.parse(height_controller.text);
+                weight = double.parse(weight_controller.text);
                 CalculateBMI calculateBMI =
                     new CalculateBMI(height: height, weight: weight);
                 Navigator.push(
@@ -171,26 +158,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  GestureDetector GenderselectedButton(
-      String text, Function() onTap, Color color) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 100,
-        height: 45,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: color,
-          border: Border.all(
-            width: 1,
-          ),
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-        ),
-        child: Text(text),
       ),
     );
   }
