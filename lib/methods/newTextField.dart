@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,7 +10,7 @@ TextField newTextField(
         FilteringTextInputFormatter.digitsOnly,
         LengthLimitingTextInputFormatter(3),
       ],
-      keyboardType: TextInputType.numberWithOptions(decimal: true),
+      keyboardType: const TextInputType.numberWithOptions(decimal: true),
       decoration: InputDecoration(
         suffixText: suffixtext,
         hintText: hinttext,

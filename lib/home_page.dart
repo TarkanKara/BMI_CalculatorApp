@@ -23,9 +23,9 @@ class _HomePageState extends State<HomePage> {
   Genderselected? selected;
   final Color activeColor = Colors.black54;
   final Color inactiveColor = Colors.white;
-  final age_controller = TextEditingController();
-  final height_controller = TextEditingController();
-  final weight_controller = TextEditingController();
+  final ageController = TextEditingController();
+  final heightController = TextEditingController();
+  final weightController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Let's Calculate \nyour current BMI",
               style: TextStyle(
                 color: Color(0xff454545),
@@ -46,11 +46,11 @@ class _HomePageState extends State<HomePage> {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Row(
-                children: [
+                children: const [
                   Text(
                     "You can find out whether you are \noverweight, underweight or ideal weight",
                     style: TextStyle(
@@ -62,11 +62,11 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                GenderselectedButton(
+                genderSelectedButton(
                   "Female",
                   () {
                     setState(() {
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                       ? activeColor
                       : inactiveColor,
                 ),
-                GenderselectedButton(
+                genderSelectedButton(
                   "Male",
                   () {
                     setState(() {
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                   },
                   selected == Genderselected.male ? activeColor : inactiveColor,
                 ),
-                GenderselectedButton(
+                genderSelectedButton(
                   "Other",
                   () {
                     setState(() {
@@ -102,32 +102,32 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             newTextField(
-              age_controller,
+              ageController,
               " ",
               "Age",
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             newTextField(
-              height_controller,
+              heightController,
               "Cm",
               "Height",
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             newTextField(
-              weight_controller,
+              weightController,
               "Kg",
               "Weight",
             ),
-            Spacer(),
+            const Spacer(),
             GestureDetector(
               onTap: () {
-                yas = double.parse(age_controller.text);
-                height = double.parse(height_controller.text);
-                weight = double.parse(weight_controller.text);
+                yas = double.parse(ageController.text);
+                height = double.parse(heightController.text);
+                weight = double.parse(weightController.text);
                 CalculateBMI calculateBMI =
-                    new CalculateBMI(height: height, weight: weight);
+                    CalculateBMI(height: height, weight: weight);
                 Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                     ));
               },
               child: Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
+                margin: const EdgeInsets.only(left: 10, right: 10),
                 width: double.infinity,
                 height: 50,
                 alignment: Alignment.center,
@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                     fontSize: 20,
                   ),
                 ),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   color: Colors.lightBlue,
                 ),

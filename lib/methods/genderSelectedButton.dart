@@ -1,6 +1,6 @@
  import 'package:flutter/material.dart';
 
-GestureDetector GenderselectedButton(
+GestureDetector genderSelectedButton(
       String text, Function() onTap, Color color) {
     return GestureDetector(
       onTap: onTap,
@@ -13,7 +13,7 @@ GestureDetector GenderselectedButton(
           border: Border.all(
             width: 1,
           ),
-          borderRadius: BorderRadius.all(Radius.circular(40)),
+          borderRadius: const BorderRadius.all(Radius.circular(40)),
         ),
         child: Text(text),
       ),
