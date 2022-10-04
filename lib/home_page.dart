@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 //Methods
 import 'methods/genderSelectedButton.dart';
+import 'methods/newShowDialog.dart';
 import 'methods/newTextField.dart';
 
 enum Genderselected { female, male, other }
@@ -123,20 +124,60 @@ class _HomePageState extends State<HomePage> {
             const Spacer(),
             GestureDetector(
               onTap: () {
-                yas = double.parse(ageController.text);
-                height = double.parse(heightController.text);
-                weight = double.parse(weightController.text);
-                CalculateBMI calculateBMI =
-                    CalculateBMI(height: height, weight: weight);
-                Navigator.push(
+                if (ageController.text.isEmpty ||
+                    heightController.text.isEmpty ||
+                    weightController.text.isEmpty) {
+                  newShowDialog(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => YourPage(
-                        bmi: calculateBMI.calculateBMI(),
-                        resultt: calculateBMI.getResult(),
-                        feddback: calculateBMI.feedBack(),
-                      ),
-                    ));
+                    "HATA!!!",
+                    "Lütfen Tüm Değerleri girdiğinizden emin olunuz...",
+                    "Tamam",
+                  );
+                } else {
+                  yas = double.parse(ageController.text);
+                  if (yas >= 0 && yas <= 110) {
+                    height = double.parse(heightController.text);
+
+                    if (height >= 50 && height <= 220) {
+                      weight = double.parse(weightController.text);
+
+                      if (weight > 50 && weight <= 300) {
+                        CalculateBMI calculateBMI =
+                            CalculateBMI(height: height, weight: weight);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => YourPage(
+                              bmi: calculateBMI.calculateBMI(),
+                              resultt: calculateBMI.getResult(),
+                              feddback: calculateBMI.feedBack(),
+                            ),
+                          ),
+                        );
+                      } else {
+                        newShowDialog(
+                          context,
+                          "HATALI Kilo Aralığı",
+                          "50 ile 300 Kg Arası bir Değer giriniz.",
+                          "Tamam",
+                        );
+                      }
+                    } else {
+                      newShowDialog(
+                          context,
+                          "HATALI Boy Uzunluğu",
+                          "50 cm ile 220 cm aralığı bir boy uzunluğu giriniz.",
+                          "Tamam");
+                    }
+                  } else {
+                    newShowDialog(
+                      context,
+                      "HATALI Yaş Aralığı",
+                      "0 ile 110 arası bir yaş aralığı giriniz",
+                      "Tamam",
+                    );
+                  }
+                }
               },
               child: Container(
                 margin: const EdgeInsets.only(left: 10, right: 10),
