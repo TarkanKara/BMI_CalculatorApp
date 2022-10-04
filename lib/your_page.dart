@@ -88,7 +88,7 @@ class _YourPageState extends State<YourPage> {
               ],
             ),
             SizedBox(
-              height: 310,
+              height: 250,
             ),
             GestureDetector(
               onTap: () {
