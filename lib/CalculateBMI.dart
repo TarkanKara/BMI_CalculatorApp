@@ -11,8 +11,8 @@ class CalculateBMI {
   late double _bmi;
 
   String calculateBMI() {
-    _bmi = weight / pow(2, height / 100);
-    return _bmi.toStringAsFixed(1);
+    _bmi = weight / pow(2, (height / 100));
+    return _bmi.toStringAsFixed(2);
   }
 
   String getResult() {
@@ -31,13 +31,13 @@ class CalculateBMI {
 
   String feedBack() {
     if (_bmi < 18.50) {
-      return ("Aşırı Zayıfsınız Yemek Yemelisin");
+      return ("Bu durum yağ oranınızın, kas kütlenizin azlığı ve çokluğu ile pek alakalı değil. Boyunuza göre kilonuz fazla düşük demektir.");
     } else if (_bmi >= 18.50 && _bmi <= 24.90) {
-      return ("Kilonuz ideal");
+      return ("BMI boyunuza göre kilonuzun gayet iyi durumda olduğunu söylüyor. Harika!");
     } else if (_bmi > 24.90 && _bmi <= 29.50) {
-      return ("Hafif Kilo verebilirsiniz");
+      return ("Vücut kitle indeksiniz 25’in üstünde çıktıysa bu hesaplamaya göre kilolusunuz demektir.Hafif Kilo verebilirsiniz");
     } else if (_bmi > 29.50 && _bmi <= 39.90) {
-      return ("Çok fazla Kilon var. Spora Gidebilirsin");
+      return ("Bu noktada profesyonel vücut geliştirme, güreş gibi bir spor yapmıyorsanız sağlığınız neredeyse kesin olarak tehdit altında demektir. Çok fazla Kilon var. Spora Gidebilirsin");
     } else {
       return ("Aşırı Kilon var,hastalık yapabilir. Acil bir diyetisyenle görüşmelisin");
     }
