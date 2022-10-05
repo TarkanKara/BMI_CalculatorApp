@@ -137,10 +137,8 @@ class _HomePageState extends State<HomePage> {
                   yas = double.parse(ageController.text);
                   if (yas >= 10 && yas <= 110) {
                     height = double.parse(heightController.text);
-
                     if (height >= 50 && height <= 220) {
                       weight = double.parse(weightController.text);
-
                       if (weight >= 50 && weight <= 300) {
                         CalculateBMI calculateBMI =
                             CalculateBMI(height: height, weight: weight);
