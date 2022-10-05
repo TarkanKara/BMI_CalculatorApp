@@ -184,16 +184,16 @@ class _HomePageState extends State<HomePage> {
                 width: double.infinity,
                 height: 50,
                 alignment: Alignment.center,
-                child: Text(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Colors.lightBlue,
+                ),
+                child: const Text(
                   "Calculate BMI",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                   ),
-                ),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: Colors.lightBlue,
                 ),
               ),
             ),

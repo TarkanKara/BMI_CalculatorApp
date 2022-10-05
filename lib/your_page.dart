@@ -28,7 +28,7 @@ class _YourPageState extends State<YourPage> {
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text(
                   "Your BMI is",
                   style: TextStyle(
@@ -39,7 +39,7 @@ class _YourPageState extends State<YourPage> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Column(
@@ -47,7 +47,7 @@ class _YourPageState extends State<YourPage> {
               children: [
                 Text(
                   widget.bmi,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.green,
                     fontSize: 70,
                     fontWeight: FontWeight.bold,
@@ -55,7 +55,7 @@ class _YourPageState extends State<YourPage> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Column(
@@ -63,7 +63,7 @@ class _YourPageState extends State<YourPage> {
               children: [
                 Text(
                   widget.resultt,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
@@ -71,7 +71,7 @@ class _YourPageState extends State<YourPage> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Column(
@@ -79,7 +79,7 @@ class _YourPageState extends State<YourPage> {
               children: [
                 Text(
                   widget.feddback,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.blueGrey,
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
@@ -87,7 +87,7 @@ class _YourPageState extends State<YourPage> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 250,
             ),
             GestureDetector(
@@ -95,20 +95,20 @@ class _YourPageState extends State<YourPage> {
                 Navigator.pop(context);
               },
               child: Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
+                margin: const EdgeInsets.only(left: 10, right: 10),
                 width: double.infinity,
                 height: 50,
                 alignment: Alignment.center,
-                child: Text(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Colors.lightBlue,
+                ),
+                child: const Text(
                   "Start Over",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                   ),
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: Colors.lightBlue,
                 ),
               ),
             ),

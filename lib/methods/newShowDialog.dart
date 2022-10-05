@@ -8,7 +8,7 @@ Future<dynamic> newShowDialog(BuildContext context, String titlee,
       return AlertDialog(
         title: Text(
           titlee,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.red,
             fontWeight: FontWeight.bold,
             fontSize: 20,
@@ -19,7 +19,7 @@ Future<dynamic> newShowDialog(BuildContext context, String titlee,
             children: [
               Text(
                 listBodyTitle,
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
             ],
           ),
@@ -31,7 +31,7 @@ Future<dynamic> newShowDialog(BuildContext context, String titlee,
             }),
             child: Text(
               buttonTitle,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 color: Colors.green,
               ),
